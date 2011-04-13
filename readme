@@ -1,0 +1,13 @@
+jquery.inputHint.js v1.0
+  A jQuery Plugin that adds hints to <input type="text" title="Hint goes here" />
+
+ Intended for use with the latest jQuery
+  http://code.jquery.com/jquery-latest.js
+
+ Copyright 2011, Todd Williams
+ Dual licensed under the MIT or GPL Version 2 licenses.
+  http://jquery.org/license
+
+ Usage:
+  <input name="name" class="inputHint" type="text" title="Enter Name" />
+  $(document).ready(function () { $(".inputHint").inputHint(); });
