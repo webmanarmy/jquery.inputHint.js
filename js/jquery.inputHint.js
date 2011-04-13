@@ -12,6 +12,11 @@
  * Usage:
  *  <input name="name" class="inputHint" type="text" title="Enter Name" />
  *  $(document).ready(function () { $(".inputHint").inputHint(); });
+ *
+ * CSS (optional):
+ *  <style type="text/css">
+ *   input.default { color: #ccc }
+ *  </style>
  */
 (function ($) {
 	$.fn.inputHint = function () {
