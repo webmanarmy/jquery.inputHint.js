@@ -19,26 +19,26 @@
  *  </style>
  */
 (function ($) {
-	$.fn.inputHint = function () {
-	    try {
-			$(this).each(function () {
-				if($(this).val() == '' || $(this).val() == $(this).attr('title')) {
-					$(this).val($(this).attr('title')).addClass('default');
-				}
-			});
-		
-    		$(this).live('click, keyup, focus', function () {
-    		    if($(this).hasClass('default')) {
-    		        $(this).val('').removeClass('default');
-    		    }
-    		}).live('blur', function () {
-    		   if($(this).val() == '') {
-    		       $(this).val($(this).attr('title')).addClass('default');
-    		   }
-    		});
-    	}
-    	catch(error) {}
-		
-		return $(this);
-	};
+  $.fn.inputHint = function () {
+      try {
+      $(this).each(function () {
+        if($(this).val() == '' || $(this).val() == $(this).attr('title')) {
+          $(this).val($(this).attr('title')).addClass('default');
+        }
+      });
+    
+        $(this).live('click, keyup, focus', function () {
+            if($(this).hasClass('default')) {
+                $(this).val('').removeClass('default');
+            }
+        }).live('blur', function () {
+           if($(this).val() == '') {
+               $(this).val($(this).attr('title')).addClass('default');
+           }
+        });
+      }
+      catch(error) {}
+    
+    return $(this);
+  };
 })(jQuery);
