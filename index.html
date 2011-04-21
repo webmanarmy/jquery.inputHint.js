@@ -28,6 +28,25 @@
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
   </style>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://github.com/webmanarmy/jquery.inputHint.js/raw/master/js/jquery.inputHint.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+	    // Basic Usage
+	    $("input.text").inputHint();
+    
+	    // Advanced Usage
+	    $("input.password").inputHint({
+	      fadeOutSpeed: 500,
+	      fontFamily: 'Georgia, serif',
+	      fontSize: '14px',
+	      hintColor: '#800',
+	      padding: '4px',
+	      effect: 'puff'
+	    });
+  });
+  </script>
 </head>
 
 <body>
@@ -46,13 +65,18 @@
       <span class="small">by <a href="http://github.com/webmanarmy">webmanarmy</a></span></h1>
 
     <div class="description">
-      Shows input hint for <input type="text" title="hint goes here" />
+      Get cool input hints like this:<br />
+			<input type="text" class="text" title="Enter your name here" /><br /><br />
+			<input type="password" class="password" title="Enter Password" /><br />
     </div>
 
     <h2>Authors</h2>
-<p>toddw (toddw@media1designs.com)<br/><br/>      </p>
+<p>toddw (toddw _at_ media1designs.com)
+<br/>
+<br/>      </p>
 <h2>Contact</h2>
-<p>toddw (toddw@media1designs.com)<br/>      </p>
+<p>toddw (toddw _at_ media1designs.com)
+<br/>      </p>
 
 
     <h2>Download</h2>
