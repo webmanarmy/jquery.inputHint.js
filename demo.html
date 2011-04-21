@@ -7,14 +7,22 @@
 	<script type="text/javascript" src="js/jquery.inputHint.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function () {
+		// Basic Usage
 		$("input.text").inputHint();
+		
+		// Advanced Usage
+		$("input.password").inputHint({
+			fadeOutSpeed: 500,
+      fontFamily: 'Georgia, serif',
+      fontSize: '14px',
+      hintColor: '#800',
+      padding: '4px'
+		});
 	});
 	</script>
-	<style type="text/css">
-	.default { color: #888; }
-	</style>
 </head>
 <body>
-<input type="text" class="text" title="Fill me out" />
+<input type="text" class="text" title="Enter your name here" /><br /><br />
+<input type="password" class="password" title="Enter Password" /><br />
 </body>
 </html>

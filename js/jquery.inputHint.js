@@ -1,5 +1,5 @@
 /*!
- * jquery.inputHint.js v1.0
+ * jquery.inputHint.js v2.0
  *  A jQuery Plugin that adds hints to <input type="text" title="Hint goes here" />
  *
  * Intended for use with the latest jQuery
@@ -13,32 +13,86 @@
  *  <input name="name" class="inputHint" type="text" title="Enter Name" />
  *  $(document).ready(function () { $(".inputHint").inputHint(); });
  *
- * CSS (optional):
- *  <style type="text/css">
- *   input.default { color: #ccc }
- *  </style>
+ * Advanced Usage:
+ *  <input name="name" class="inputHint" type="text" title="Enter Name" />
+ *  $(document).ready(function () {
+ *    $(".inputHint").inputHint({
+ *      fadeOutSpeed: 200,
+ *      fontFamily: 'Helvetica, Arial, sans-serif',
+ *      fontSize: '12px',
+ *      hintColor: '#888',
+ *      padding: '4px'
+ *    });
+ *  });
  */
 (function ($) {
-  $.fn.inputHint = function () {
-      try {
-      $(this).each(function () {
-        if($(this).val() == '' || $(this).val() == $(this).attr('title')) {
-          $(this).val($(this).attr('title')).addClass('default');
-        }
+  $.fn.inputHint = function (options) {
+    options = $.extend({
+      fadeOutSpeed: 200,
+      fontFamily: 'Helvetica, Arial, sans-serif',
+      fontSize: '12px',
+      hintColor: '#888',
+      padding: '4px'
+    }, options);
+    
+    // convert padding from pixels to a number (px is used to remain consistent with css)
+    options['padding'] = parseInt(options['padding'].replace(/px/, ''));
+    
+    // Show overlay and link them together using .data()
+    var _showOverlay = function (element) {
+      // Build out our overlay
+      var offset = element.offset(), 
+          overlay = $('<div />').css({
+            'position': 'absolute',
+            'left': offset.left + 'px',
+            'top': offset.top + 'px',
+            'width': element.outerWidth() - (options['padding']*2) + 'px',
+            'height': element.outerHeight() - (options['padding']*2) + 'px',
+            'line-height': element.innerHeight() + 'px',
+            'overflow': 'hidden',
+            'cursor': 'text',
+            'font-family': options['fontFamily'],
+            'font-size': options['fontSize'],
+            'color': options['hintColor'],
+            'padding': options['padding'] + 'px'
+          })
+          .html(element.attr('title'))
+          .addClass('inputHintOverlay')
+          .data('inputHintSource', element);
+      element.data('inputHintOverlay', overlay);
+    
+      $('body').append(overlay);
+    },
+    _removeOverlay = function (element, callback) {
+      element.fadeOut(options['fadeOutSpeed'], function () {
+        // Now that we have faded out, remove the overlay
+        element.remove();
       });
+    };
     
-        $(this).live('click, keyup, focus', function () {
-            if($(this).hasClass('default')) {
-                $(this).val('').removeClass('default');
-            }
-        }).live('blur', function () {
-           if($(this).val() == '') {
-               $(this).val($(this).attr('title')).addClass('default');
-           }
-        });
+    // Set the stage and show input hint for all blank inputs with a title
+    $(this).each(function () {
+      if($(this).val() == '' || $(this).val() == $(this).attr('title')) {
+        $(this).val('');
+        _showOverlay($(this));
       }
-      catch(error) {}
+    });
     
+    // When they click the overlay focus on input
+    $(".inputHintOverlay").live('click', function () {
+      $(this).data('inputHintSource').focus();
+    });
+
+    // user focuses on input, we remove the overlay
+    $(this).live('click, keyup, focus', function () {
+      var overlay = $(this).data('inputHintOverlay');
+      _removeOverlay(overlay);
+    }).live('blur', function () {
+      if($(this).val() == '') {
+        _showOverlay($(this));
+      }
+    });
+
     return $(this);
   };
 })(jQuery);
