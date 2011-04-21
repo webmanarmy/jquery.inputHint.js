@@ -66,11 +66,27 @@
       $('body').append(overlay);
     },
     _removeOverlay = function (element, callback) {
+      // remove class so _positionUpdateInterval doesn't touch it durring animation
+      element.removeClass('inputHintOverlay');
       element.hide(options['effect'], options['effectOptions'], options['fadeOutSpeed'], function () {
         // Now that we have faded out, remove the overlay
         element.remove();
       });
-    };
+    },
+    _updatePositions = function() {
+      $(".inputHintOverlay").each(function () {
+        var offset = $(this).data('inputHintSource').offset();
+        $(this).css({
+          'left': offset.left + 'px',
+          'top': offset.top + 'px'
+        });
+      });
+    },
+    
+    // Constantly scan for position changes
+    _positionUpdateInterval = setInterval(function () {
+      _updatePositions();
+    }, 500);
     
     // Set the stage and show input hint for all blank inputs with a title
     $(this).each(function () {
@@ -94,6 +110,8 @@
         _showOverlay($(this));
       }
     });
+    
+    // Constantly scan for 
 
     return $(this);
   };
