@@ -9,6 +9,7 @@ jquery.inputHint.js v2.0
   http://jquery.org/license
 
  Basic Usage:
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/jquery.inputHint.js"></script>
     <script type="text/javascript">
@@ -17,6 +18,7 @@ jquery.inputHint.js v2.0
     <input name="name" class="text" type="text" title="Enter Name" />
  
  Advanced Usage:
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/jquery.inputHint.js"></script>
