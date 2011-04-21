@@ -32,7 +32,9 @@
       fontFamily: 'Helvetica, Arial, sans-serif',
       fontSize: '12px',
       hintColor: '#888',
-      padding: '4px'
+      padding: '4px',
+      effect: 'fade', // jquery-ui required for most effects ('explode', 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide', 'transfer')
+      effectOptions: false
     }, options);
     
     // convert padding from pixels to a number (px is used to remain consistent with css)
@@ -64,7 +66,7 @@
       $('body').append(overlay);
     },
     _removeOverlay = function (element, callback) {
-      element.fadeOut(options['fadeOutSpeed'], function () {
+      element.hide(options['effect'], options['effectOptions'], options['fadeOutSpeed'], function () {
         // Now that we have faded out, remove the overlay
         element.remove();
       });

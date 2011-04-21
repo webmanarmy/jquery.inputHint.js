@@ -9,19 +9,26 @@ jquery.inputHint.js v2.0
   http://jquery.org/license
 
  Basic Usage:
-
-    $(document).ready(function () { $(".text").inputHint(); });
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.inputHint.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () { $(".text").inputHint(); });
+    </script>
     <input name="name" class="text" type="text" title="Enter Name" />
  
  Advanced Usage:
-
-    $(document).ready(function () {
-      $(".text").inputHint({
-        fadeOutSpeed: 200,
-        fontFamily: 'Helvetica, Arial, sans-serif',
-        fontSize: '12px',
-        hintColor: '#888',
-        padding: '4px'
-      });
-    });
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.inputHint.js"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+	      $(".text").inputHint({
+	        fadeOutSpeed: 200,
+	        fontFamily: 'Helvetica, Arial, sans-serif',
+	        fontSize: '12px',
+	        hintColor: '#888',
+	        padding: '4px'
+	      });
+	    });
+    </script>
     <input name="name" class="text" type="text" title="Enter Name" />
