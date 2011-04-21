@@ -27,7 +27,8 @@ jquery.inputHint.js v2.0
 	        fontFamily: 'Helvetica, Arial, sans-serif',
 	        fontSize: '12px',
 	        hintColor: '#888',
-	        padding: '4px'
+	        padding: '4px',
+					effect: 'puff'
 	      });
 	    });
     </script>
