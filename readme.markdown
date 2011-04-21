@@ -8,21 +8,13 @@ jquery.inputHint.js v2.0
  Dual licensed under the MIT or GPL Version 2 licenses.
   http://jquery.org/license
 
- Usage:
-	```html
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.inputHint.js"></script>
-  <script type="text/javascript">
+ Basic Usage:
+
     $(document).ready(function () { $(".text").inputHint(); });
-  </script>
-  <input name="name" class="text" type="text" title="Enter Name" />
-  ```
+    <input name="name" class="text" type="text" title="Enter Name" />
  
  Advanced Usage:
-  ```html
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.inputHint.js"></script>
-  <script type="text/javascript">
+
     $(document).ready(function () {
       $(".text").inputHint({
         fadeOutSpeed: 200,
@@ -32,6 +24,4 @@ jquery.inputHint.js v2.0
         padding: '4px'
       });
     });
-  </script>
-  <input name="name" class="text" type="text" title="Enter Name" />
-  ```
+    <input name="name" class="text" type="text" title="Enter Name" />
